@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <div id="container">
+        <div id="inboxContainer">
+            <div>
+                <h1 id="title">משחק ללימודי חשבון</h1>
+            </div>
+            <div id="boxGame">
+                <h2>אפשרויות משחק</h2>
+                <div id="SelectDiv">
+                    <div class="groupSelect">
+                        <label>בחר טווח מספרים</label>
+                        <select class="selectClass" onchange="changeRange()">
+                            <option value="1">1-10</option>
+                            <option value="2">1-100</option>
+                            <option value="3">1-1000</option>
+                        </select>
+                    </div>
+
+                    <div class="groupSelect">
+                        <label>בחר אופרטור</label>
+                        <select class="selectClass" onchange="changeOpertor()">
+                            <option value="0">+  (5 נק)</option>
+                            <option value="1">-  (5 נק)</option>
+                            <option value="2">* (10 נק)</option>
+                            <option value="3">/ (10 נק)</option>
+                            <option value="4">^ (15 נק)</option>
+                            <option value="5">&radic; (15 נק)</option>
+                            <option value="6">% (5 נק)</option>
+                        </select>
+                    </div>
+
+                    <div class="groupSelect">
+                        <label>בחר קבוצת מספרים</label>
+                        <select class="selectClass" onchange="changeNumberGroup()">
+                            <option value="0">שלמים</option>
+                            <option value="1">עשרוניים (30 נק)</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+                <hr style="width: 100%;">
+
+                <div id="inputDiv">
+                    <span class="kubia" onclick="chooseNumRandom()" style="margin-left: -15px;">&#x2683;</span>
+                    <span class="kubia" onclick="chooseNumRandom()">&#x2685;</span>
+                    <span style="font-size: 35px;font-weight: bold;font-family: 'Heebo', sans-serif;"><span id="ex"></span> = </span>
+                    <input type="number" id="inputAns">
+                    <button id="checkBtn" onclick="checkAnswer()">בדוק</button>
+                </div>
+
+
+                <table>
+                    <thead>
+                        <tr style="background-color: #cfcfcf;">
+                            <th>תרגיל</th>
+                            <th>תשובה נכונה</th>
+                            <th>תשובת המשתמש</th>
+                            <th>ניקוד</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>
+                        <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>  <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>
+                        <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>
+                        <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>  <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>     <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>
+                        <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr>  <tr>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                            <td>v</td>
+                        </tr> -->
+                    </tbody>
+
+                    <tfoot>
+                        <tr style=" background-color: #036e20;color: white;">
+                            <td colspan="2" class="tdFooter">סה"כ</td>
+                            <td colspan="2" id="totalTd" class="tdFooter">0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: right;"><span id="resetPoints" onclick="resetPointsTb()">איפוס</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            
+            <!-- <span style="position: absolute;bottom: 0;left: 0;">לחזרה למעלה</span> -->
+
+        </div>
+    </div>
+
+
+
+    <script src="script/script.js"></script>
+</body>
+</html>

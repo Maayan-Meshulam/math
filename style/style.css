@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+p, div{
+    width: fit-content;
+}
+
+#container{
+    background-image: url('../images/bg4.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px 0 100px;
+    margin: auto;
+    direction: rtl;
+}
+
+
+h2, h1, th{
+    font-family: 'Open sans', sans-serif;
+    color: #07228f;
+}
+
+#checkBtn{
+    background-color: #1a1a9c;
+    color: white;
+    border: none;
+    width: 85px;
+    height: 25px;
+    cursor: pointer;
+    font-family: 'Open sans', sans-serif;
+}
+
+input{
+    height: 25px;
+    width: 120px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#inboxContainer{
+    background-color: white;
+    padding: 50px;
+    width: 700px;
+    /* לבדוק כשאר עושים 600 */
+    min-height: 550px;
+    margin: auto;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    margin-right: 150px;
+
+}
+
+#boxGame{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    /* border: 1px solid red; */
+    gap: 15px;
+}
+
+#inputDiv{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    margin-top: 30px;
+    align-self: center;
+}
+
+.groupSelect{
+    display: flex;
+    flex-direction: column;
+}
+
+#SelectDiv{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    direction: rtl;
+    font-family: 'Open sans', sans-serif;
+}
+
+option{
+    text-align: center;
+}
+
+table{
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    align-self: center;
+}
+
+th{
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: 5px;
+}
+
+tr{
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+td{
+    padding: 8px;
+    font-size: 12px;
+}
+
+.kubia{
+    transition: 1.5s;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#resetPoints{
+    font-weight: bold;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+}
+
+.tdFooter{
+    font-family: 'Open sans', sans-serif;
+}
