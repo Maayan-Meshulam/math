@@ -5,15 +5,16 @@ num2 = Math.floor(Math.random() * 10);
 let operator = '+';
 let numRange = '1';
 let groupNum = '0';
+
 let answerStr = num1 + operator + num2;
 let totalAnswer = eval(answerStr).toFixed();
 let userAnwser;
+
 let points = 0;
 let totalPoints = 0
 
-//אובייקט שבו המפתחות מסמלים את טווח המספרים הנבחר והערכים מסמלים את מס הנקודות שיקבל עבור אותו טווח
+//אובייקט שבו המפתחות מסמלים את סוג קבוצת המספרים או את האופרטור הנבחר והערכים מסמלים את מס הנקודות שיקבל עבור אותה בחירה
 let arrPoints = {'+':5, '-':5, '*':10, '/':10, '**':15, 'שורש':15, '%':5, 1:30, 0:0};
-
 let arrOperators = ['+', '-', '*', '/', '**', 'שורש', '%'];
 
 
@@ -23,7 +24,8 @@ let arrOperators = ['+', '-', '*', '/', '**', 'שורש', '%'];
 
 //פונקציה שבוחרת 2 מספרים בהתאם לטווח באופן רנדומלי
 function chooseNumRandom(){
-
+    console.log(groupNum);
+    
     numRange = document.getElementsByClassName('selectClass')[0].value;   
 
     if(groupNum == 0){
@@ -55,11 +57,11 @@ function chooseNumRandom(){
         }
     }
   
-
+    console.log((num1, num2));
+        
     answerStr = num1 + operator + num2;
-    // let temp = answerStr.slice(answerStr.indexOf('&radic;'));
-    // answerStr = Math.sqrt(num1, num2);
     totalAnswer = eval(answerStr);
+
     //במקרה שזה עשרוני ניקח 2 מספרים אחרי הנקודה
     if(!Number.isInteger(totalAnswer))
         totalAnswer = eval(answerStr).toFixed(2);
@@ -74,6 +76,7 @@ function chooseOperator(){
     operator = arrOperators[opertaorValue];
     answerStr = num1 + operator + num2;
     totalAnswer = eval(answerStr);
+
     //במקרה שזה עשרוני ניקח 2 מספרים אחרי הנקודה
     if(!Number.isInteger(totalAnswer))
         totalAnswer = eval(answerStr).toFixed(2);
