@@ -14,8 +14,8 @@ let points = 0;
 let totalPoints = 0
 
 //אובייקט שבו המפתחות מסמלים את סוג קבוצת המספרים או את האופרטור הנבחר והערכים מסמלים את מס הנקודות שיקבל עבור אותה בחירה
-let arrPoints = {'+':5, '-':5, '*':10, '/':10, '**':15, 'שורש':15, '%':5, 1:30, 0:0};
-let arrOperators = ['+', '-', '*', '/', '**', 'שורש', '%'];
+let arrPoints = {'+':5, '-':5, '*':10, '/':10, '**':15, '\u221A':15, '%':5, 1:30, 0:0};
+let arrOperators = ['+', '-', '*', '/', '**', '\u221A', '%'];
 
 
 
@@ -24,7 +24,6 @@ let arrOperators = ['+', '-', '*', '/', '**', 'שורש', '%'];
 
 //פונקציה שבוחרת 2 מספרים בהתאם לטווח באופן רנדומלי
 function chooseNumRandom(){
-    console.log(groupNum);
     
     numRange = document.getElementsByClassName('selectClass')[0].value;   
 
@@ -60,11 +59,20 @@ function chooseNumRandom(){
     console.log((num1, num2));
         
     answerStr = num1 + operator + num2;
-    totalAnswer = eval(answerStr);
+    if(operator != '\u221A')
+        totalAnswer = eval(answerStr);
+    else
+        totalAnswer = num1 * Math.sqrt(num2);
 
+        
     //במקרה שזה עשרוני ניקח 2 מספרים אחרי הנקודה
-    if(!Number.isInteger(totalAnswer))
-        totalAnswer = eval(answerStr).toFixed(2);
+    if(!Number.isInteger(totalAnswer)){
+        if(operator != '\u221A')
+            totalAnswer = eval(answerStr).toFixed(2);
+        else
+            totalAnswer = (num1 * Math.sqrt(num2)).toFixed(2);
+    
+    }
     showEx();
 }
 
@@ -74,12 +82,21 @@ function chooseOperator(){
     opertaorValue = document.getElementsByClassName('selectClass')[1].value;  
     //הערך תואם לאינדקס - נקבל את האופרטור הנבחר
     operator = arrOperators[opertaorValue];
+    
     answerStr = num1 + operator + num2;
-    totalAnswer = eval(answerStr);
+    
+    if(operator != '\u221A')
+        totalAnswer = eval(answerStr);
+    else
+        totalAnswer = num1 * Math.sqrt(num2);
 
     //במקרה שזה עשרוני ניקח 2 מספרים אחרי הנקודה
-    if(!Number.isInteger(totalAnswer))
-        totalAnswer = eval(answerStr).toFixed(2);
+    if(!Number.isInteger(totalAnswer)){
+        if(operator != '\u221A')
+            totalAnswer = eval(answerStr).toFixed(2);
+        else
+            totalAnswer = (num1 * Math.sqrt(num2)).toFixed(2);
+    }
     showEx();
 }
 
@@ -107,7 +124,7 @@ showEx();
 function checkAnswer(){
     
     userAnwser = document.getElementById('inputAns').value;
-    if(userAnwser == totalAnswer){
+    if(userAnwser == totalAnswer){       
         points = arrPoints[operator] + arrPoints[groupNum];
         totalPoints += points;
         addLinesTable();
