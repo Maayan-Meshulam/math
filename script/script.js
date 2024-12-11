@@ -55,9 +55,7 @@ function chooseNumRandom(){
             num2 = (Math.random() * 1000).toFixed(2);
         }
     }
-  
-    console.log((num1, num2));
-        
+          
     answerStr = num1 + operator + num2;
     if(operator != '\u221A')
         totalAnswer = eval(answerStr);
@@ -101,16 +99,6 @@ function chooseOperator(){
 }
 
 
-//פונקציה שבוחרת את הקבוצת מספרים המתאימה
-function changeNumberGroup(){
-    if(document.getElementsByClassName('selectClass')[2].value == 0)
-        groupNum = 0;
-    else
-        groupNum = 1;
-    chooseNumRandom();
-}
-
-
 
 //פונקציה שמדפיסה למסך את התרגיל
 function showEx(){
@@ -122,20 +110,25 @@ showEx();
 
 //פונקציה שבודקת האם התשובה של המשתמש נכונה
 function checkAnswer(){
-    
     userAnwser = document.getElementById('inputAns').value;
-    if(userAnwser == totalAnswer){       
-        points = arrPoints[operator] + arrPoints[groupNum];
-        totalPoints += points;
-        addLinesTable();
-        document.getElementById('inputAns').value = '';
-        chooseNumRandom();
+    if(userAnwser == ''){
+        alert('יש להזין ערך חוקי')
     }
     else{
-       points = 0;
-       addLinesTable();
-       document.getElementById('inputAns').value = '';
+        if(userAnwser == totalAnswer){       
+            points = arrPoints[operator] + arrPoints[groupNum];
+            totalPoints += points;
+            addLinesTable();
+            document.getElementById('inputAns').value = '';
+            chooseNumRandom();
+        }
+        else{
+           points = 0;
+           addLinesTable();
+           document.getElementById('inputAns').value = '';
+        }
     }
+    
 }
 
 
@@ -147,6 +140,7 @@ function addLinesTable(){
     document.getElementById('totalTd').innerText = totalPoints;
 }
 
+//פונקציה שמאספת את הטבלה
 function resetPointsTb(){
     document.querySelector('tbody').innerHTML = '';
     totalPoints = 0;
@@ -154,12 +148,23 @@ function resetPointsTb(){
     document.getElementById('totalTd').innerText = totalPoints;
 }
 
+//פונקציה שמשנה קבוצת מספרים
 function changeRange(){
     opertaorValue = document.getElementsByClassName('selectClass')[1].value;
     chooseNumRandom(opertaorValue);
     showEx();
 }
 
+//פונקציה שבוחרת את הקבוצת מספרים המתאימה
+function changeNumberGroup(){
+    if(document.getElementsByClassName('selectClass')[2].value == 0)
+        groupNum = 0;
+    else
+        groupNum = 1;
+    chooseNumRandom();
+}
+
+//פונקציה שמשנה אופרטור
 function changeOpertor(){
     numRange = document.getElementsByClassName('selectClass')[0].value;
     chooseOperator(numRange);
@@ -168,7 +173,7 @@ function changeOpertor(){
 
 
 //קוביות מסתובבות שלחיצה עליהן מגרילה מספרים חדשים
-onload = function(){
+window.onload = function(){
     let angel = 360;
   this.setInterval(()=>{
     this.document.getElementsByClassName('kubia')[0].style.transform = `rotate(${-angel}deg)`;
