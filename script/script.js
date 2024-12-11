@@ -7,7 +7,7 @@ let numRange = '1';
 let groupNum = '0';
 
 let answerStr = num1 + operator + num2;
-let totalAnswer = eval(answerStr).toFixed();
+let totalAnswer = eval(answerStr).toFixed(2);
 let userAnwser;
 
 let points = 0;
@@ -111,8 +111,10 @@ showEx();
 //פונקציה שבודקת האם התשובה של המשתמש נכונה
 function checkAnswer(){
     userAnwser = document.getElementById('inputAns').value;
+    userAnwser = userAnwser;
+
     if(userAnwser == ''){
-        alert('יש להזין ערך חוקי')
+        alert('יש להזין ערך חוקי');
     }
     else{
         if(userAnwser == totalAnswer){       
