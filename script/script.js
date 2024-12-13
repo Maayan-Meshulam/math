@@ -7,7 +7,7 @@ let numRange = '1';
 let groupNum = '0';
 
 let answerStr = num1 + operator + num2;
-let totalAnswer = eval(answerStr).toFixed(2);
+let totalAnswer = eval(answerStr);
 let userAnwser;
 
 let points = 0;
@@ -69,7 +69,11 @@ function chooseNumRandom(){
             totalAnswer = eval(answerStr).toFixed(2);
         else
             totalAnswer = (num1 * Math.sqrt(num2)).toFixed(2);
-    
+
+        //למקרה שהספרה השנייה אחרי הנקודה היא 0 אז נוריד אותה
+        totalAnswer = String(totalAnswer)
+        parseFloat(totalAnswer);
+        totalAnswer = Number(totalAnswer)
     }
     showEx();
 }
@@ -94,6 +98,11 @@ function chooseOperator(){
             totalAnswer = eval(answerStr).toFixed(2);
         else
             totalAnswer = (num1 * Math.sqrt(num2)).toFixed(2);
+
+        //למקרה שהספרה השנייה אחרי הנקודה היא 0 אז נוריד אותה
+        totalAnswer = String(totalAnswer)
+        parseFloat(totalAnswer);
+        totalAnswer = Number(totalAnswer)
     }
     showEx();
 }
